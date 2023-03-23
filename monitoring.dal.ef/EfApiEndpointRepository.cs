@@ -13,7 +13,7 @@ namespace monitoring.dal.ef
         }
 
 
-        public IList<ApiEndpoint> GetAll()
+        public IList<ApiEndpoint> GetAllApiEndpoints()
         {
             return this._context.ApiEndpoints.ToList();
         }

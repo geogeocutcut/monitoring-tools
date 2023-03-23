@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using monitoring.business.model;
-using monitoring.dal.ef.MyProject.Infrastructure.Persistence;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +13,27 @@ namespace monitoring.dal.ef
     {
             public DbSet<ApiEndpoint> ApiEndpoints { get; set; }
 
-            public MonitoringToolDbContext(DbContextOptions<MonitoringToolDbContext> options) : base(options)
+            public MonitoringToolDbContext(DbContextOptions<MonitoringToolDbContext> optionsBuilder) : base(optionsBuilder)
             {
+            }
+
+            protected override void OnModelCreating(ModelBuilder modelBuilder)
+            {
+                modelBuilder.Entity<ApiEndpoint>()
+                    .ToTable("api_endpoints",schema:"monitoring")
+                    .HasKey(a => a.Id);
+
+                modelBuilder.Entity<ApiEndpoint>()
+                    .Property(a => a.Id)
+                    .HasColumnName("id");
+
+                modelBuilder.Entity<ApiEndpoint>()
+                    .Property(a => a.Name)
+                    .HasColumnName("name");
+
+                modelBuilder.Entity<ApiEndpoint>()
+                    .Property(a => a.Description)
+                    .HasColumnName("description");
             }
     }
 }

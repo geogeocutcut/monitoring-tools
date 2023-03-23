@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace monitoring.business.dal
 {
-    public interface IMonitoringUnitOfWork
+    public interface IMonitoringToolUnitOfWork
     {
         IApiEndpointRepository ApiEndpointRepository { get; }
     }

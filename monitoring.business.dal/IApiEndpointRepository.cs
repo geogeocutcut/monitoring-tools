@@ -4,6 +4,6 @@ namespace monitoring.business.dal
 {
     public interface IApiEndpointRepository
     {
-        IList<ApiEndpoint> GetAll();
+        IList<ApiEndpoint> GetAllApiEndpoints();
     }
 }
