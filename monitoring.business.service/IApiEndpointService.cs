@@ -9,6 +9,8 @@ namespace monitoring.business.service
 {
     public interface IApiEndpointService
     {
-        IList<ApiEndpoint> GetAllApiEndpoints();
+        Task<IList<ApiEndpoint>> GetAllApiEndpointsAsync();
+
+        Task SaveChangesAsync();
     }
 }

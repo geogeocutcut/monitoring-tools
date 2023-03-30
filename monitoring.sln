@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "monitoring.business.dal", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "monitoring.dal.ef", "monitoring.dal.ef\monitoring.dal.ef.csproj", "{57BAAE02-5E27-4D89-B6F8-E09A87FD3BED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "monitoring.api", "monitoring.api\monitoring.api.csproj", "{0FBB1DFD-3C4F-4848-90C2-5BD7258D8A1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "monitoring.api", "monitoring.api\monitoring.api.csproj", "{0FBB1DFD-3C4F-4848-90C2-5BD7258D8A1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "monitoring.dal.cache", "monitoring.dal.cache\monitoring.dal.cache.csproj", "{16FC7A88-D171-42F2-8E36-806354ADC112}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{0FBB1DFD-3C4F-4848-90C2-5BD7258D8A1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FBB1DFD-3C4F-4848-90C2-5BD7258D8A1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FBB1DFD-3C4F-4848-90C2-5BD7258D8A1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16FC7A88-D171-42F2-8E36-806354ADC112}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16FC7A88-D171-42F2-8E36-806354ADC112}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16FC7A88-D171-42F2-8E36-806354ADC112}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16FC7A88-D171-42F2-8E36-806354ADC112}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +67,7 @@ Global
 		{2CEFAC3C-F733-4A14-B5BC-1B3DADA42877} = {4A31CFAD-3334-4F4F-8275-E22640B7224D}
 		{57BAAE02-5E27-4D89-B6F8-E09A87FD3BED} = {FDBBF3D5-EBDD-4418-8AE1-F1B330AC2FDB}
 		{0FBB1DFD-3C4F-4848-90C2-5BD7258D8A1C} = {E100803E-2EFC-453F-A178-B8612584E8CB}
+		{16FC7A88-D171-42F2-8E36-806354ADC112} = {FDBBF3D5-EBDD-4418-8AE1-F1B330AC2FDB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B6E6253C-AB58-45B9-85E5-46289D21EBFC}

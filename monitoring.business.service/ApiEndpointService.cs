@@ -12,12 +12,18 @@ namespace monitoring.business.service
             _UoW= uow;
         }
 
-        public IList<ApiEndpoint> GetAllApiEndpoints()
+        public async Task<IList<ApiEndpoint>> GetAllApiEndpointsAsync()
         {
             var repo = _UoW.ApiEndpointRepository;
 
-            return repo.GetAllApiEndpoints();
+            return await repo.GetAllApiEndpointsAsync();
         }
 
+        public async Task SaveChangesAsync()
+        {
+            var repo = _UoW.ApiEndpointRepository;
+
+            await repo.SaveChangesAsync();
+        }
     }
 }

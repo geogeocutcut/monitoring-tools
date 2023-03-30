@@ -19,6 +19,8 @@ namespace monitoring.dal.ef
 
             protected override void OnModelCreating(ModelBuilder modelBuilder)
             {
+                base.OnModelCreating(modelBuilder);
+
                 modelBuilder.Entity<ApiEndpoint>()
                     .ToTable("api_endpoints",schema:"monitoring")
                     .HasKey(a => a.Id);

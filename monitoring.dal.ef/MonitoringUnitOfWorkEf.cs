@@ -1,22 +1,18 @@
-﻿using Microsoft.EntityFrameworkCore;
-using monitoring.business.dal;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using monitoring.business.dal;
+using monitoring.dal.cache;
 
 namespace monitoring.dal.ef
 {
-    public  class EfMonitoringToolUnitOfWork : IMonitoringToolUnitOfWork
+    public  class MonitoringUnitOfWorkEf : IMonitoringToolUnitOfWork
     {
 
         private readonly MonitoringToolDbContext _Context;
         private IApiEndpointRepository _ApiEndpointRepository;
 
-        public EfMonitoringToolUnitOfWork(MonitoringToolDbContext context)
+        public MonitoringUnitOfWorkEf(MonitoringToolDbContext context)
         {
             _Context = context;
+            context.Database.EnsureCreated();
         }
 
         public IApiEndpointRepository ApiEndpointRepository
@@ -25,11 +21,12 @@ namespace monitoring.dal.ef
             {
                 if (_ApiEndpointRepository == null)
                 {
-                    _ApiEndpointRepository = new EfApiEndpointRepository(_Context);
+                    _ApiEndpointRepository = new ApiEndpointRepositoryCache( new ApiEndpointRepositoryEf(_Context));
                 }
                 return _ApiEndpointRepository;
             }
         }
+
 
     }
 }

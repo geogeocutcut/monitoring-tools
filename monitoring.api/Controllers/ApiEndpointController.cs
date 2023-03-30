@@ -19,9 +19,10 @@ namespace monitoring.api.Controllers
         }
 
         [HttpGet(Name = "GetAllApiEndpoint")]
-        public IEnumerable<ApiEndpoint> Get()
+        public async Task<IEnumerable<ApiEndpoint>> Get()
         {
-            return _Service.GetAllApiEndpoints();
+            _Logger.LogInformation("Call GetAllApiEndpoint ++++");
+            return await _Service.GetAllApiEndpointsAsync();
         }
     }
 }

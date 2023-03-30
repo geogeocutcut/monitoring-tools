@@ -4,6 +4,8 @@ namespace monitoring.business.dal
 {
     public interface IApiEndpointRepository
     {
-        IList<ApiEndpoint> GetAllApiEndpoints();
+        Task<IList<ApiEndpoint>> GetAllApiEndpointsAsync();
+
+        Task SaveChangesAsync();
     }
 }
