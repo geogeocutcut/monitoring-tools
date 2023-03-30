@@ -18,7 +18,7 @@ namespace monitoring.dal.cache
         public async Task<IList<ApiEndpoint>> GetAllApiEndpointsAsync()
         {
             var ts = DateTime.Now - _LastCached;
-            if(_ApiEndpointsCached is null || ts.Seconds>1800)
+            if(_ApiEndpointsCached is null || ts.TotalSeconds>1800)
             {
 
                 _ApiEndpointsCached = await _Next.GetAllApiEndpointsAsync();
