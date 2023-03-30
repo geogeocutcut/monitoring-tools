@@ -12,7 +12,8 @@
         <vue-good-table
           :columns="columns"
           :rows="endpointsList"
-          styleClass="vgt-table condensed">
+          styleClass="vgt-table condensed"
+          theme="nocturnal">
           <template #table-row="props">
             <span
               class="wrap"
@@ -68,11 +69,11 @@ export default {
         {
           label: 'Description',
           field: 'description',
-          width: '40%',
+          width: '200px',
           sortable:false
         },
         {
-          label: 'Last updated',
+          label: 'Dernier Message',
           field: 'lastUpdated',
           width: '150px',
           formatFn: this.lastUpdatedFormat,
@@ -81,7 +82,6 @@ export default {
         {
           label: 'Message',
           field: this.informationField,
-          width: '50%',
           sortable:false
         },
       ],
@@ -126,7 +126,6 @@ export default {
 
 <style scoped>
 .app {
-  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   font-family: 'Roboto', sans-serif;
