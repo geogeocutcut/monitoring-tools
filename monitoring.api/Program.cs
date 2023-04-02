@@ -18,7 +18,10 @@ builder.Services.AddCors(options =>
 // Add services to the container.
 builder.Services.AddDbContext<MonitoringToolDbContext>(options =>
     options.UseMySQL(builder.Configuration.GetConnectionString("MySqlConnection")),ServiceLifetime.Singleton);
-builder.Services.AddSingleton<IMonitoringToolUnitOfWork, MonitoringUnitOfWorkEf>();
+int refreshTime = builder.Configuration.GetValue<int>("RefreshTime");
+builder.Services.AddSingleton<IMonitoringToolUnitOfWork, MonitoringUnitOfWorkEf>(x =>
+    new MonitoringUnitOfWorkEf(x.GetRequiredService<MonitoringToolDbContext>(),
+                refreshTime));
 builder.Services.AddSingleton<IApiEndpointService, ApiEndpointService>();
 builder.Services.AddControllers();
 
