@@ -88,7 +88,7 @@ export default {
     };
   },
   mounted() {
-    this.fetchApiEndpoints();
+    this.fetchApiEndpoints(true);
     
     this.timer = setInterval(this.fetchApiEndpoints, 60000);
   },
@@ -100,8 +100,9 @@ export default {
       const date = new Date(value)
       return date.toLocaleDateString()+" "+date.toLocaleTimeString() ;
     },
-    async fetchApiEndpoints() {
-      this.loading = true;
+    async fetchApiEndpoints(loadManagement=false) {
+      if(loadManagement)
+        this.loading = true;
       try {
         const data = await EndpointsProxy.getAllApiEndpoints();
         const apiList = data.map((api) => {
